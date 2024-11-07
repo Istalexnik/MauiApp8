@@ -1,11 +1,5 @@
 ﻿using CommunityToolkit.Maui.Markup;
 using MauiApp8.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static CommunityToolkit.Maui.Markup.GridRowsColumns;
 
 namespace MauiApp8.Pages;
 internal class MainPage : BaseContentPage<MainViewModel>

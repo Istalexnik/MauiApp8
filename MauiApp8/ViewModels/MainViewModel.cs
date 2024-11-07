@@ -18,5 +18,5 @@ internal partial class MainViewModel : BaseViewModel
     int _clickCount = 0;
 
     [RelayCommand]
-    void IncrementClickMeButton() => ClickCount++;
+    void IncrementClickMeButton() => ClickCount += 1;
 }
