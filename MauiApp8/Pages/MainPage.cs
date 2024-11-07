@@ -7,6 +7,11 @@ internal class MainPage : BaseContentPage<MainViewModel>
     public MainPage(MainViewModel mainViewModel) : base(mainViewModel, "My Main Page")
     {
 
+ 
+    }
+
+    public override void Build()
+    {
         Content = new ScrollView
         {
             Content = new VerticalStackLayout
