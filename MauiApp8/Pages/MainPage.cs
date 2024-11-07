@@ -10,20 +10,49 @@ using static CommunityToolkit.Maui.Markup.GridRowsColumns;
 namespace MauiApp8.Pages;
 internal class MainPage : BaseContentPage<MainViewModel>
 {
-    enum Row { HelloWorld, Welcome, Count, ClickMeButton, Image }
     public MainPage(MainViewModel mainViewModel) : base(mainViewModel, "My Main Page")
     {
 
-        Content = new Grid
+        Content = new ScrollView
         {
-            RowSpacing = 25,
-            Padding = 25,
-            RowDefinitions = Rows.Define(
-        (Row.HelloWorld, Auto),
-        (Row.Welcome, Auto),
-        (Row.Count, Auto),
-        (Row.ClickMeButton, Auto),
-        (Row.Image, Auto))
+            Content = new VerticalStackLayout
+            {
+                Spacing = 25,
+                Padding = 30,
+
+                Children =
+                {
+                    new Label()
+                        .Text("Hello World")
+                        .Font(size: 32)
+                        .CenterHorizontal(),
+
+                    new Label()
+                        .Text("Welcome to .NET MAUI Markup Community Toolkit Sample")
+                        .Font(size: 18)
+                        .CenterHorizontal(),
+
+                    new Label()
+                        .Font(size: 18, bold: true)
+                        .CenterHorizontal()
+                        .Bind(Label.TextProperty,
+                                static (MainViewModel vm) => vm.ClickCount,
+                                convert: count => $"Current Count: {count}"),
+
+                    new Button()
+                        .Text("Click Me")
+                        .Font(bold: true)
+                        .CenterHorizontal()
+                        .Bind(Button.CommandProperty,
+                                static (MainViewModel vm) => vm.IncrementClickMeButtonCommand,
+                                mode: BindingMode.OneTime),
+
+                    new Image()
+                        .Source("dotnet_bot")
+                        .Size(250, 310)
+                        .CenterHorizontal()
+                }
+            }
         };
     }
 }
