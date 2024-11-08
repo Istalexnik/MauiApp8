@@ -45,7 +45,7 @@ internal class MainPage : BaseContentPage<MainViewModel>
                                 mode: BindingMode.OneTime),
 
                     new Image()
-                        .Source("dotnet_bot")
+                        .Source("dotnet_bot.png")
                         .Size(250, 310)
                         .CenterHorizontal()
                 }
